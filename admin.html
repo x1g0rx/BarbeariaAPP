@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Online - Painel Administrativo</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Painel Administrativo</h1>
+
+        <div id="admin-panel-content">
+            <p>Bem-vindo, <span id="admin-user-email"></span>!</p>
+            <button id="btn-admin-logout">Sair do Painel Admin</button>
+
+            <h3>Gerenciar Agendamentos</h3>
+
+            <div class="section">
+                <h4>Filtrar por Barbeiro:</h4>
+                <select id="admin-barber-select">
+                    <option value="">Todos os Barbeiros</option>
+                    </select>
+            </div>
+
+            <div class="section">
+                <h4>Selecione a Data:</h4>
+                <input type="text" id="admin-date-picker" placeholder="Selecione uma data" readonly>
+            </div>
+            <button id="btn-load-admin-schedules">Carregar Agendamentos</button>
+
+            <div id="admin-schedules-list">
+                <p>Selecione um barbeiro e/ou uma data e clique em "Carregar Agendamentos".</p>
+            </div>
+
+            <h3>Gerenciar Horários de Atendimento</h3>
+            <div class="section">
+                <h4>Gerar/Alterar Horários Padrão para uma Data:</h4>
+                <select id="edit-barber-select">
+                    <option value="">Selecione um barbeiro</option>
+                </select>
+                <input type="text" id="edit-date-picker" placeholder="Selecione a data para editar" readonly>
+                <button id="btn-generate-default-times">Gerar Horários Padrão (9h-17h, 30min)</button>
+                <p id="generate-message"></p>
+            </div>
+            <p id="admin-message" style="margin-top: 20px;"></p> </div>
+            <div id="admin-panel-content" style="display: none;">
+                <h3>Gerenciar Barbeiros</h3>
+                <div class="section">
+                    <h4>Adicionar Novo Barbeiro:</h4>
+                    <input type="text" id="new-barber-name" placeholder="Nome do Barbeiro" required>
+                    <button id="btn-add-barber">Adicionar Barbeiro</button>
+                    <p id="add-barber-message"></p>
+                </div>
+    
+                <div class="section">
+                    <h4>Remover Barbeiro Existente:</h4>
+                    <select id="remove-barber-select">
+                        <option value="">Selecione um barbeiro para remover</option>
+                        </select>
+                    <button id="btn-remove-barber">Remover Barbeiro</button>
+                    <p id="remove-barber-message"></p>
+                    <p style="font-size: 0.8em; color: gray;">
+                        **Atenção:** Remover um barbeiro **não apaga** seus agendamentos passados/futuros, apenas o remove da lista de seleção. Agendamentos associados a ele continuarão visíveis nos relatórios.
+                    </p>
+                </div>
+    
+                <p id="admin-message" style="margin-top: 20px;"></p>
+                <p style="margin-top: 20px;"><a href="login.html">Voltar para Login/Agendamento de Cliente</a></p>
+            </div>
+    
+         </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+
+    <script src="admin_script.js"></script>
+</body>
+</html>

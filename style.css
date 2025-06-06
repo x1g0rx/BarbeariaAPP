@@ -1,0 +1,268 @@
+/* style.css - Tema Escuro */
+
+/* Estilos gerais para o corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Fundo mais escuro (quase preto) */
+    margin: 0;
+    color: #f0f0f0; /* Cor padrão do texto: branco suave */
+}
+
+/* Container principal (o card onde o conteúdo reside) */
+.container {
+    background-color: #2b2b2b; /* Fundo do container: cinza escuro */
+    padding: 30px;
+    border-radius: 12px; /* Borda mais arredondada */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+    text-align: center;
+    width: 100%;
+    max-width: 550px; /* Levemente aumentado */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    color: #e0e0e0; /* Cor dos títulos: cinza claro */
+    margin-bottom: 25px; /* Mais espaçamento */
+    font-weight: 600; /* Levemente mais negrito */
+}
+
+/* Inputs de texto (e-mail, senha, nome, whatsapp, select, date picker) */
+input[type="email"],
+input[type="password"],
+select,
+input[type="text"],
+input[type="tel"] { /* Adicionado input type="tel" para WhatsApp */
+    width: calc(100% - 24px); /* Ajuste para padding */
+    padding: 12px; /* Padding maior */
+    margin-bottom: 18px; /* Mais espaçamento */
+    border: 1px solid #444; /* Borda sutilmente escura */
+    border-radius: 6px; /* Borda levemente arredondada */
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #3a3a3a; /* Fundo dos inputs: cinza mais escuro */
+    color: #f0f0f0; /* Texto dos inputs: branco suave */
+}
+
+/* Placeholder dos inputs */
+input::placeholder {
+    color: #b0b0b0; /* Cor do placeholder: cinza claro */
+    opacity: 0.8;
+}
+
+/* Botões */
+button {
+    background-color: #007bff; /* Azul vibrante para botões */
+    color: white;
+    padding: 14px 25px; /* Padding maior */
+    border: none;
+    border-radius: 6px; /* Borda arredondada */
+    cursor: pointer;
+    font-size: 17px; /* Fonte maior */
+    margin: 7px; /* Mais margem */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adicionado transform */
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
+
+button:active {
+    transform: translateY(0); /* Retorna ao clique */
+}
+
+/* Mensagens de erro/sucesso */
+#message, #booking-message, #admin-message, #add-barber-message, #remove-barber-message, #generate-message {
+    color: #ff6b6b; /* Vermelho mais vibrante para erros */
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Conteúdo principal (agendamento do cliente e painel admin) */
+#app-content, #admin-panel-content {
+    padding-top: 30px;
+    border-top: 1px solid #444; /* Linha divisória sutil */
+    margin-top: 30px;
+}
+
+/* E-mails do usuário (para destaque) */
+#user-email, #admin-user-email {
+    font-weight: bold;
+    color: #8be9fd; /* Azul claro para e-mails */
+}
+
+/* Seções dentro do container */
+.section {
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #3a3a3a; /* Borda escura */
+    border-radius: 8px;
+    background-color: #343434; /* Fundo da seção: cinza escuro */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para seções */
+}
+
+.section h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #e0e0e0; /* Cor do título da seção */
+}
+
+/* Horários disponíveis (flexbox) */
+#available-times, #admin-schedules-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Mais espaçamento entre slots */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Slot de horário */
+.time-slot {
+    background-color: #4a4a4a; /* Fundo do slot: cinza médio */
+    color: #f0f0f0; /* Texto do slot: branco suave */
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-size: 15px;
+    border: 1px solid #555; /* Borda sutil */
+    flex-grow: 1; /* Permite que os slots cresçam */
+    max-width: 120px; /* Limita o tamanho para não ficarem muito grandes */
+}
+
+/* Horário disponível no hover */
+.time-slot.available:hover {
+    background-color: #4CAF50; /* Verde mais escuro e sólido para disponível no hover */
+    color: white;
+    border-color: #388e3c;
+    transform: translateY(-1px); /* Pequeno efeito hover */
+}
+
+/* Horário disponível (cor padrão) */
+.time-slot.available {
+    background-color: #66bb6a; /* Verde mais claro para disponível */
+    color: #1a1a1a; /* Texto escuro para contraste */
+    border-color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Horário agendado */
+.time-slot.booked {
+    background-color: #EF5350; /* Vermelho para agendado */
+    color: #f0f0f0; /* Texto branco */
+    cursor: not-allowed;
+    border-color: #D32F2F;
+    opacity: 0.8;
+    text-decoration: line-through; /* Linha sobre o texto */
+}
+
+/* Estilos para o Flatpickr (calendário) */
+.flatpickr-calendar {
+    background-color: #3a3a3a; /* Fundo do calendário */
+    color: #f0f0f0; /* Texto do calendário */
+    border: 1px solid #555;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.today.selected,
+.flatpickr-day.today.selected:hover {
+    background-color: #007bff; /* Cor de seleção do calendário */
+    border-color: #007bff;
+    color: white;
+}
+
+.flatpickr-day.today {
+    border-color: #007bff; /* Borda para o dia de hoje */
+}
+
+.flatpickr-day:hover {
+    background-color: #4a4a4a; /* Hover nos dias */
+}
+
+.flatpickr-day.disabled {
+    color: #888; /* Dias desabilitados */
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .numInputWrapper span,
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover,
+.flatpickr-current-month .numInputWrapper span:hover {
+    color: #f0f0f0; /* Cores dos meses e anos */
+}
+
+
+/* Novo estilo para os itens de agendamento no painel admin */
+.schedule-item {
+    background-color: #343434; /* Fundo do item de agendamento: cinza escuro */
+    border: 1px solid #444; /* Borda sutil */
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    text-align: left;
+    width: 100%; /* Ocupa a largura total da div pai */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Organiza em coluna para melhor leitura */
+    gap: 8px; /* Espaçamento entre os elementos */
+    color: #f0f0f0; /* Texto branco */
+}
+
+.schedule-item strong {
+    color: #8be9fd; /* Destaque para o nome do barbeiro */
+    font-size: 1.1em;
+}
+
+.schedule-item span {
+    color: #b0b0b0; /* Cor para informações do cliente */
+    font-size: 0.95em;
+}
+
+.schedule-item .btn-unbook {
+    align-self: flex-end; /* Alinha o botão à direita */
+    background-color: #dc3545; /* Vermelho para desmarcar */
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px; /* Espaçamento acima do botão */
+}
+
+.schedule-item .btn-unbook:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Estilos para as seções de gerenciamento de barbeiros no admin */
+#add-barber-message, #remove-barber-message {
+    font-size: 1em;
+    margin-top: 10px;
+    color: #ff6b6b; /* Mesma cor de erro */
+}
+
+/* Links no rodapé */
+a {
+    color: #007bff; /* Cor azul para links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Azul mais escuro no hover */
+    text-decoration: underline;
+}

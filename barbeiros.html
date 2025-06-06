@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Online - Agendamento</title>
+    <link rel="stylesheet" href="barbeiros.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à Barbearia!</h1>
+
+        <div id="auth-form">
+            <h2>Acessar</h2>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button id="btn-signup">Registrar</button>
+            <button id="btn-login">Entrar</button>
+            <p id="message"></p>
+        </div>
+
+        <div id="app-content" style="display: none;">
+            <h2>Olá, <span id="user-email"></span>!</h2>
+            <button id="btn-logout">Sair</button>
+
+            <h3>Agende seu Corte</h3>
+
+            <div class="section">
+                <h4>1. Escolha o Barbeiro:</h4>
+                <select id="barber-select">
+                    <option value="">Carregando barbeiros...</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <h4>2. Escolha a Data:</h4>
+                <input type="text" id="date-picker" placeholder="Selecione uma data" readonly>
+            </div>
+
+            <div class="section">
+                <h4>3. Horários Disponíveis:</h4>
+                <div id="available-times">
+                    <p>Selecione um barbeiro e uma data para ver os horários.</p>
+                </div>
+            </div>
+
+            <p id="booking-message"></p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script> <script src="script.js"></script>
+    <script src="barbeiros.js"></script>
+
+</body>
+
+</html>
